@@ -6,14 +6,9 @@
                 <div class="card-body">
                     <p class="card-text">{{ product.price }}</p>
                     <button
-                            *ngIf="product.available === (product.count) || product.available === 0"
-                            disabled
-                            class="btn btn-dark"
-                    >Expected</button>
-                    <button
-                            *ngIf="product.available !== (product.count) && product.available > 0"
-                            routerLink="cart"
-                            class="btn btn-primary"
+                            [disabled]="product.available === (product.count) || product.available === 0"
+                            class="btn btn-success"
+                            routerLink="/shop/cart"
                             (click)="addToCart(product)"
                     >Add to cart</button>
                 </div>

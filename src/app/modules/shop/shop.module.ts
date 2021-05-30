@@ -8,6 +8,7 @@ import {ThanksComponent} from './components/thanks/thanks.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {RequestService} from './services/request.service';
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
     {
@@ -31,7 +32,8 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forRoot(routes),
         NgbModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     exports: [
         RouterModule

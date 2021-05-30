@@ -18,13 +18,7 @@
                             {{product.count}}
                         </span>
                         <button
-                                *ngIf="product.available === (product.count) || product.available === 0"
-                                disabled
-                                class="btn btn-dark"
-                        >+
-                        </button>
-                        <button
-                                *ngIf="product.available !== (product.count) && product.available > 0"
+                                [disabled]="product.available === (product.count) || product.available === 0"
                                 class="btn btn-primary"
                                 (click)="addProductToCart(product)"
                         >+
