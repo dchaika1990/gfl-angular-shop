@@ -10,10 +10,9 @@
                             disabled
                             class="btn btn-dark"
                     >Expected</button>
-                    <p>available - {{product.available}}</p>
-                    <p>count - {{product.count}}</p>
                     <button
                             *ngIf="product.available !== (product.count) && product.available > 0"
+                            routerLink="cart"
                             class="btn btn-primary"
                             (click)="addToCart(product)"
                     >Add to cart</button>

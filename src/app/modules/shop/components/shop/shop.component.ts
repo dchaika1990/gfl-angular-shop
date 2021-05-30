@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../services/product';
 import {RequestService} from '../../services/request.service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
     selector: 'app-shop',
@@ -10,9 +11,9 @@ import {RequestService} from '../../services/request.service';
 export class ShopComponent implements OnInit {
     products: Product[] = [];
     loading = true;
-    cartProducts: Product[] = JSON.parse(localStorage.getItem('cartProducts') as string) || [];
+    cartProducts: Product[] = this.requestService.getCartProducts;
 
-    constructor(private requestService: RequestService) {
+    constructor(private requestService: RequestService, private apiService: ApiService) {
     }
 
     ngOnInit(): void {
@@ -31,27 +32,6 @@ export class ShopComponent implements OnInit {
     }
 
     addToCart(product: Product) {
-        this.setProductToStorage(product);
+        this.apiService.addProduct(product, this.cartProducts, this.products);
     }
-
-    setProductToStorage(product: Product) {
-        const productId = product.id;
-        if (product.count === 0) {
-            this.cartProducts.push(product);
-        }
-        this.cartProducts.forEach((cartProduct) => {
-            if (cartProduct.id === productId) {
-                if (cartProduct.count < cartProduct.available) {
-                    cartProduct.count++;
-                    this.products.forEach((prod) => {
-                        if (prod.id === productId) {
-                            prod.count = cartProduct.count;
-                        }
-                    });
-                }
-            }
-        });
-        localStorage.setItem('cartProducts', JSON.stringify(this.cartProducts));
-    }
-
 }
