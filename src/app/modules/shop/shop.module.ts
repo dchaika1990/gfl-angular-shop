@@ -5,6 +5,9 @@ import {ShopComponent} from './components/shop/shop.component';
 import {CartComponent} from './components/cart/cart.component';
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {ThanksComponent} from './components/thanks/thanks.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+import {RequestService} from './services/request.service';
 
 const routes: Routes = [
     {
@@ -24,13 +27,17 @@ const routes: Routes = [
         CheckoutComponent,
         ThanksComponent
     ],
-    exports: [
-        RouterModule
-    ],
     imports: [
         CommonModule,
         RouterModule.forRoot(routes),
+        NgbModule,
+        HttpClientModule
+    ],
+    exports: [
+        RouterModule
+    ],
+    providers: [
+        RequestService
     ]
 })
-export class ShopModule {
-}
+export class ShopModule {}

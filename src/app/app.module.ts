@@ -15,8 +15,6 @@ import {UserPageComponent} from './components/user-page/user-page.component';
 import {UserPipe} from './user.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavigationComponent} from './components/navigation/navigation.component';
-import { ShopComponent } from './modules/components/shop/shop.component';
-
 
 
 @NgModule({
@@ -27,8 +25,7 @@ import { ShopComponent } from './modules/components/shop/shop.component';
         NotFoundPageComponent,
         UserPageComponent,
         UserPipe,
-        NavigationComponent,
-        ShopComponent
+        NavigationComponent
     ],
     imports: [
         BrowserModule,

@@ -1,1 +1,24 @@
-<p>shop works!</p>
+<div class="container" *ngIf="!loading">
+    <div class="row">
+        <div class="col-4" *ngFor="let product of products">
+            <div class="card mt-5">
+                <h5 class="card-header">{{ product.name }}</h5>
+                <div class="card-body">
+                    <p class="card-text">{{ product.price }}</p>
+                    <button
+                            *ngIf="product.available === (product.count) || product.available === 0"
+                            disabled
+                            class="btn btn-dark"
+                    >Expected</button>
+                    <p>available - {{product.available}}</p>
+                    <p>count - {{product.count}}</p>
+                    <button
+                            *ngIf="product.available !== (product.count) && product.available > 0"
+                            class="btn btn-primary"
+                            (click)="addToCart(product)"
+                    >Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
