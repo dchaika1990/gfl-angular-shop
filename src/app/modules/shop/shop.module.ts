@@ -8,11 +8,11 @@ import {ThanksComponent} from './components/thanks/thanks.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {RequestService} from './services/request.service';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
     {
-        path: 'shop', children: [
+        path: '', children: [
             {path: '', component: ShopComponent},
             {path: 'cart', component: CartComponent},
             {path: 'checkout', component: CheckoutComponent},
