@@ -15,7 +15,7 @@
                                         formControlName="firstname">
                                 <p class="errors"
                                    *ngIf="loginForm.controls.firstname.status === 'INVALID' && loginForm.controls.firstname.dirty">
-                                    <span>Field not valid</span>
+                                    <span>Required field and min length 2</span>
                                 </p>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                                         formControlName="lastname">
                                 <p class="errors"
                                    *ngIf="loginForm.controls.lastname.status === 'INVALID' && loginForm.controls.lastname.dirty">
-                                    <span>Field not valid</span>
+                                    <span>Required field and min length 2</span>
                                 </p>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                         formControlName="phone">
                                 <p class="errors"
                                    *ngIf="loginForm.controls.phone.status === 'INVALID' && loginForm.controls.phone.dirty">
-                                    <span>Field not valid</span>
+                                    <span>Required field</span>
                                 </p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                         formControlName="email">
                                 <p class="errors"
                                    *ngIf="loginForm.controls.email.status === 'INVALID' && loginForm.controls.email.dirty">
-                                    <span>Field not valid</span>
+                                    <span>Required field, test@test.com</span>
                                 </p>
                             </div>
                         </div>
